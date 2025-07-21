@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Tahun Bersama Hasna</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #ff6b81;
+            --secondary: #ff8e9e;
+            --accent: #7ed6df;
+            --dark: #2f3542;
+            --light: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://placehold.co/LOVE YOU') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .moment {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .moment::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .moment-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .moment-content h3 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .moment-image {
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .moment-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .moment-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .gift-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .gift-section h2 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .gift-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .gift-item {
+            width: 300px;
+            position: relative;
+        }
+
+        .gift-image {
+            height: 350px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .gift-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gift-item:hover .gift-image img {
+            transform: scale(1.1);
+        }
+
+        .gift-caption {
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .message-box {
+            background-color: var(--accent);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            position: relative;
+            color: white;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .message-box::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            right: 40px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 60px;
+        }
+
+        .heart {
+            color: var(--primary);
+            font-size: 1.2rem;
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .moment {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .moment::after {
+                left: 21px;
+            }
+
+            .left::after, .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts"></div>
+    
+    <header>
+        <div class="content">
+            <h1>2 Tahun Bersamamu</h1>
+            <p class="subtitle">Perjalanan indah kami sejak pertama ketemu</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="timeline">
+            <div class="moment left fade-in">
+                <div class="moment-content">
+                    <h3>Kondangan pertama</h3>
+                    <p>Di hari yang cerah itu, takdir mempertemukan kita untuk pertama kalinya. Senyummu langsung mencuri hatiku.</p>
+                    <div class="moment-image">
+                        <img src="12.jpg" alt="Pasangan muda bertemu pertama kali di kafe dengan cahaya matahari sore" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="moment right fade-in">
+                <div class="moment-content">
+                    <h3>Nonton film</h3>
+                    <p>Tanggal pertama kita di bioskop, filmnya biasa saja tapi kebersamaan kita istimewa.</p>
+                    <div class="moment-image">
+                        <img src="5.jpg" alt="Pasangan duduk berdekatan di bioskop dengan popcorn di antara mereka" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="moment left fade-in">
+                <div class="moment-content">
+                    <h3>Liburan Bersama</h3>
+                    <p>Perjalanan pertama kita ke pantai, dimana aku menyadari betapa sempurnanya kamu di sampingku.</p>
+                    <div class="moment-image">
+                        <img src="10.jpg" alt="Pasangan memegang tangan di pantai saat matahari terbenam, jejak kaki di pasir" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="moment right fade-in">
+                <div class="moment-content">
+                    <h3>moment with you</h3>
+                    <p>kamu inget moment ini ga? btw kamu cantik banget loh.</p>
+                    <div class="moment-image">
+                        <img src="7.jpg" alt="Pasangan berfoto dengan balon angka 1 dan bunga-bunga di latar belakang" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="gift-section fade-in">
+            <h2>Hadiah Spesial untuk Hasna</h2>
+            <p>Untuk merayakan tahun kedua kita bersama, aku punya sesuatu yang istimewa untukmu...</p>
+            
+            <div class="gift-container">
+                <div class="gift-item">
+                    <div class="gift-image">
+                        <img src="55.jpg" alt="Sepasang celana jeans wanita model high-waist berwarna biru muda dengan detail jahitan dekoratif" />
+                    </div>
+                    <div class="gift-caption">Celana ini hadiah untuk Hasna</div>
+                </div>
+                
+                <div class="gift-item">
+                    <div class="gift-image">
+                        <img src="13.jpg" alt="Kotak hadiah berukuran besar dibungkus kertas hadiah dengan motif hati berwarna merah muda" />
+                    </div>
+                    <div class="gift-caption"> kado yang lain tunggu datang yaa sayang</div>
+                </div>
+            </div>
+
+            <div class="message-box">
+                <p>Hasna sayang, dua tahun bersamamu terasa begitu singkat karena setiap saat bersamamu penuh kebahagiaan. Celana ini adalah tanda cintaku agar kamu selalu nyaman dalam setiap langkahmu, seperti aku berusaha membuatmu nyaman dalam hubungan kita. Aku mencintaimu lebih dari hari ke hari.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Dibuat dengan <span class="heart">❤</span> untuk Hasna tercinta - Anniversary ke-2 kita</p>
+    </footer>
+
+    <script>
+        // Animasi floating hearts
+        function createHearts() {
+            const container = document.querySelector('.floating-hearts');
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.style.position = 'absolute';
+                heart.style.color = `hsl(${Math.random() * 60 + 330}, 100%, 70%)`;
+                heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.top = `${Math.random() * 100}vh`;
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                heart.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                
+                const keyframes = `
+                    @keyframes float {
+                        0% {
+                            transform: translateY(0) rotate(0deg);
+                        }
+                        100% {
+                            transform: translateY(-100vh) rotate(360deg);
+                        }
+                    }
+                `;
+                
+                const style = document.createElement('style');
+                style.innerHTML = keyframes;
+                document.head.appendChild(style);
+                
+                container.appendChild(heart);
+            }
+        }
+
+        // Scroll animations
+        function checkScroll() {
+            const moments = document.querySelectorAll('.moment');
+            const windowHeight = window.innerHeight;
+            
+            moments.forEach(moment => {
+                const position = moment.getBoundingClientRect().top;
+                
+                if (position < windowHeight - 100) {
+                    moment.classList.add('fade-in');
+                }
+            });
+        }
+
+        // Run on load
+        window.addEventListener('load', () => {
+            createHearts();
+            checkScroll();
+        });
+
+        // Run on scroll
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
